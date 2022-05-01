@@ -14,7 +14,7 @@ export default function Approve({
   setIsApproved,
   isApproved,
 }) {
-  const { getOdonTokenContract, getEthTokenContract, library, themeMode, account } =
+  const { getOdonTokenContract, library, themeMode, account } =
     useContext(LendAndLoanContext);
   const [balance, setBalance] = useState(null);
   const [isApproving, setIsApproving] = useState(false);

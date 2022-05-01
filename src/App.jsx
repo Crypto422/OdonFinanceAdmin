@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
-import Loan from "./components/Loan";
-import Lend from "./components/Lend";
+import {Manage} from "./components/Manage";
+import Lend from "./components/Setting";
 import Navbar from "./components/Navbar";
 import Error from "./components/Error";
-import Redemption from "./components/Redemption";
+import Redemption from "./components/Analyse";
 import { Routes, Route } from "react-router-dom";
 import { LendAndLoanContext } from "./context/LendAndLoanContext";
 import { ConnectWallet, DisConnectWallet } from "./components/ConnectWallet";
@@ -39,9 +39,9 @@ function App() {
                 <Navbar />
               </div>
               <Routes>
-                <Route path="/" element={<Loan />} />
-                <Route path="/lend" element={<Lend />} />
-                <Route path="/redemption" element={<Redemption />} />
+                <Route path="/manage" element={<Manage />} />
+                <Route path="/setting" element={<Lend />} />
+                <Route path="/analytics" element={<Redemption />} />
                 <Route path="*" element={<Error />} />
               </Routes>
             </div>

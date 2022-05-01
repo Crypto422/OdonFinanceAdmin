@@ -155,22 +155,7 @@ export const LendAndLoanProvider = ({ children }) => {
     }
   }
 
-  const getUserOngoingLend = async () => {
-    let arr = [];
-    if (library) {
-      const contract = getLoanContract(library.getSigner());
-      if (account) {
-        const lends = await contract.getUserNotRetrieveLend();
 
-        lends.forEach((item) => {
-          if (item.lender != "0x0000000000000000000000000000000000000000") {
-            arr.push(item);
-          }
-        });
-      }
-      return arr;
-    }
-  };
   const getUserOngoingLoan = async () => {
     if (library) {
       const contract = getLoanContract(library.getSigner());
@@ -326,8 +311,6 @@ export const LendAndLoanProvider = ({ children }) => {
     await loadWeb3();
     await handleStartUp();
     await getAccBalance();
-    await getUserOngoingLoan();
-    await getUserOngoingLend();
   }, [account]);
   return (
     <LendAndLoanContext.Provider
@@ -352,6 +335,9 @@ export const LendAndLoanProvider = ({ children }) => {
         loanModeFirst,
         isShowConnectModal,
         isShowDisConnectModal,
+        usdcLTV,
+        usdtLTV,
+        btcLTV,
         connectWallet,
         disconnectWallet,
         disconnect,
@@ -366,17 +352,13 @@ export const LendAndLoanProvider = ({ children }) => {
         getAccUSDCBalance,
         getAccUSDTBalance,
         getAccBTCBalance,
-        getUserOngoingLend,
         getUserOngoingLoan,
         getUserUnHealthLoans,
         getUserOverdueLoans,
         setContractTotalLiquidity,
         setIsShowDisConnectModal,
         setIsShowConnectModal,
-        getLoansLTV,
-        usdcLTV,
-        usdtLTV,
-        btcLTV
+        getLoansLTV
       }}
     >
       {children}

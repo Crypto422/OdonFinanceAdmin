@@ -47,12 +47,12 @@ export default function Navbar() {
   const [isShowingToken, setIsShowingToken] = useState(true);
   const [userBalance, setUserBalance] = useState();
   const dropdownRef = useRef();
-  const navMenu = ["Loan", "Lend", "Redemption", "Contract"];
+  const navMenu = ["Manage", "Setting", "Analytics", "Contract"];
 
   useEffect(async () => {
     const url = window.location.href;
     let param = url.substring(url.lastIndexOf("/") + 1);
-    param == "" ? setIsActive("Loan") : setIsActive(param);
+    param == "" ? setIsActive("Manage") : setIsActive(param);
     if (account) {
       let odonTokenBalance = getOdonTokenContract(library);
       const tokenAmount = await odonTokenBalance.balanceOf(account);

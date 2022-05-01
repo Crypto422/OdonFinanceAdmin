@@ -1,7 +1,4 @@
 import React, { useState, useContext } from "react";
-import LoanStepper from "./LoanStepper";
-import LoanDetails from "./LoanDetails";
-import Approve from "./Approve";
 import Confirm from "./Confirm";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { LendAndLoanContext } from "../context/LendAndLoanContext";
@@ -10,6 +7,7 @@ export default function LoanConfirm({
   information,
   cancel,
   isShow,
+  setIsProceeding,
   ethRef,
   odonRef,
 }) {
@@ -21,6 +19,7 @@ export default function LoanConfirm({
     cancel();
     setStep(1);
     setIsApproved(false);
+    setIsProceeding(false)
     setHash("");
     ethRef.current.value = "";
     odonRef.current.value = "";
@@ -29,7 +28,7 @@ export default function LoanConfirm({
     <div
       className={
         "absolute w-[90%] left-[50%] top-[50%] md:w-[500px] -translate-x-[50%] -translate-y-[50%]  mx-auto rounded-xl pb-8 pt-5 p-2 md:p-5 shadow-xl transition duration-200 scale-0 z-20 " +
-        (isShow ? (`scale-100 ${themeMode ? ' bg-white text-black':' bg-[#191b1f]'}`) : "")
+        (isShow ? (`scale-100 ${themeMode ? ' bg-white text-black' : ' bg-[#191b1f]'}`) : "")
       }
     >
       <div className="flex items-center justify-center absolute -right-0 -top-0 rounded-full ">
@@ -38,43 +37,17 @@ export default function LoanConfirm({
           onClick={() => handleClose()}
         />
       </div>
-      {/* stepper */}
       <div>
-        <LoanStepper step={step} />
-      </div>
-      <div>
-        {step == 1 && (
-          <LoanDetails
-            information={information}
-            setStep={setStep}
-            stepNow={step}
-          />
-        )}
-        {step == 2 && (
-          <Approve
-            setStep={setStep}
-            stepNow={step}
-            information={information}
-            setIsApproved={setIsApproved}
-            isApproved={isApproved}
-          />
-        )}
 
-        {step == 3 && (
-          <Confirm
-            information={information}
-            setStep={setStep}
-            stepNow={step}
-            setHash={setHash}
-            hash={hash}
-          />
-        )}
+        <Confirm
+          information={information}
+          setStep={setStep}
+          stepNow={step}
+          setIsProceeding={setIsProceeding}
+          setHash={setHash}
+          hash={hash}
+        />
       </div>
-      {/* <Routes>
-          <Route path="/lend/details" element={<LoanDetails />} />
-          <Route path="/lend/approve" element={<Approve />} />
-          <Route path="/lend/confirm" element={<Confirm />} />
-        </Routes> */}
     </div>
   );
 }
