@@ -20,9 +20,13 @@ export const LendAndLoanProvider = ({ children }) => {
   const [networkId, setNetworkId] = useState();
   const [themeMode, setTheme] = useState(false);
   const [contractOdonLiquidity, setOdonContractLiquidity] = useState();
+  const [contractOdonLiquidityInUsd, setOdonContractLiquidityInUsd] = useState();
   const [contractUsdcLiquidity, setUsdcContractLiquidity] = useState();
+  const [contractUsdcLiquidityInUsd, setUsdcContractLiquidityInUsd] = useState();
   const [contractUsdtLiquidity, setUsdtContractLiquidity] = useState();
-  const [contractBtcLiquidity, setbZtcContractLiquidity] = useState();
+  const [contractUsdtLiquidityInUsd, setUsdtContractLiquidityInUsd] = useState();
+  const [contractBtcLiquidity, setbtcContractLiquidity] = useState();
+  const [contractBtcLiquidityInUsd, setBtcContractLiquidityInUsd] = useState();
   const [isShowConnectModal, setIsShowConnectModal] = useState();
   const [isSupportMetaMask, setIsSupportMetaMask] = useState(false);
   const [isShowDisConnectModal, setIsShowDisConnectModal] = useState();
@@ -39,6 +43,10 @@ export const LendAndLoanProvider = ({ children }) => {
   const [usdcLTV, setUsdcLTV] = useState();
   const [usdtLTV, setUsdtLTV] = useState();
   const [btcLTV, setBtcLTV] = useState();
+
+  const [loanCount, setLoanCount] = useState();
+  const [lendCount, setLendCount] = useState();
+
 
 
   let library;
@@ -183,13 +191,38 @@ export const LendAndLoanProvider = ({ children }) => {
       }
     }
   };
+  const getTotalLiquidityInUsd = async (mtype) => {
+    if (library) {
+      const contract = getLoanContract(library.getSigner());
+      if (account) {
+        const liquidity = await contract.getTotalLiquidityInUSD(mtype);
+        return liquidity;
+      }
+    }
+  };
   const setContractTotalLiquidity = async () => {
     if (library) {
       const contract = getLoanContract(library);
+
+      const loancount = await contract.loanCount();
+      const lendcount = await contract.lendCount();
+
       const odon = await contract.odonTotalLiquidity();
       const usdc = await contract.usdcTotalLiquidity();
       const usdt = await contract.usdtTotalLiquidity();
       const btc = await contract.btcTotalLiquidity();
+
+      const odonInusd = await contract.getTotalLiquidityInUSD(5);
+      const usdcInusd = await contract.getTotalLiquidityInUSD(2);
+      const usdtInusd = await contract.getTotalLiquidityInUSD(3);
+      const btcInusd = await contract.getTotalLiquidityInUSD(4);
+
+      setLoanCount(
+        loancount.toString()
+      )
+      setLendCount(
+        lendcount.toString()
+      )
 
       setOdonContractLiquidity(
         Number(ethers.utils.formatEther(odon.toString())).toFixed(3)
@@ -200,8 +233,22 @@ export const LendAndLoanProvider = ({ children }) => {
       setUsdtContractLiquidity(
         Number(ethers.utils.formatEther(usdt.toString())).toFixed(3)
       );
-      setbZtcContractLiquidity(
+      setbtcContractLiquidity(
         Number(ethers.utils.formatEther(btc.toString())).toFixed(3)
+      );
+
+
+      setOdonContractLiquidityInUsd(
+        Number((odonInusd.toString())) / 100000000
+      );
+      setUsdcContractLiquidityInUsd(
+        Number((usdcInusd.toString())) / 100000000
+      );
+      setUsdtContractLiquidityInUsd(
+        Number((usdtInusd.toString())) / 100000000
+      );
+      setBtcContractLiquidityInUsd(
+        Number((btcInusd.toString())) / 100000000
       );
     }
   };
@@ -321,9 +368,13 @@ export const LendAndLoanProvider = ({ children }) => {
         networkId,
         isSupportMetaMask,
         contractOdonLiquidity,
+        contractOdonLiquidityInUsd,
         contractUsdcLiquidity,
+        contractUsdcLiquidityInUsd,
         contractUsdtLiquidity,
+        contractUsdtLiquidityInUsd,
         contractBtcLiquidity,
+        contractBtcLiquidityInUsd,
         usdcBorrowApy,
         usdtBorrowApy,
         btcBorrowApy,
@@ -338,6 +389,8 @@ export const LendAndLoanProvider = ({ children }) => {
         usdcLTV,
         usdtLTV,
         btcLTV,
+        loanCount,
+        lendCount,
         connectWallet,
         disconnectWallet,
         disconnect,

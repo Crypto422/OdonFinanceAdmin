@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rsuite/charts": "^4.1.0",
+    "echarts": "^4.9.0",
     "eslint": "^8.13.0",
     "ethers": "^5.5.4",
     "react": "^17.0.2",
