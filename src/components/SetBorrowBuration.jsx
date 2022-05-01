@@ -66,7 +66,7 @@ function SetBorrowDuration() {
                 onClick={() => {
                   isDropDown ? setIsDropDown(false) : setIsDropDown(true);
                 }}
-                className={"cursor-pointer justify-between relative flex items-center px-2 py-2 md:px-3 rounded-2xl cursor-pointer transition text-xl md:text-2xl select-none text-center" + (themeMode ? " bg-gray-300  hover:bg-gray-400" : " bg-[#1a1c20c2]")}
+                className={"cursor-pointer justify-between relative flex items-center px-2 py-2 md:px-3 rounded-2xl cursor-pointer transition text-xl md:text-2xl select-none text-center" + (themeMode ? " bg-gray-300  hover:bg-gray-400" : " bg-gray-700")}
               >
                 {mType === 1 && (
                   <p className="px-2">7, 14, 30 days</p>
@@ -79,12 +79,12 @@ function SetBorrowDuration() {
                   <HiArrowSmDown className="text-2xl md:text-3xl" /> : <></>
                 }
                 {isDropDown ? (
-                  <div className={"relative flexshadow shadow-gray-400 rounded hover:shadow-gray-600 overflow-hidden" + (themeMode ? " bg-white" : " bg-[#1a1c20c2]")}>
+                  <div className={"relative flexshadow shadow-gray-400 rounded hover:shadow-gray-600 overflow-hidden" + (themeMode ? " bg-white" : " bg-gray-400")}>
                     <div
                       onClick={() => handleDropButtonClick(1)}
                       className="relative flex  border-b-2 border-teal-600 items-center cursor-pointer text-xl hover:bg-gray-500 px-6 py-1 transition"
                     >
-                      7, 14, 30 days{" "}
+                      7, 14,30 days{" "}
                     </div>
                     <div
                       onClick={() => handleDropButtonClick(2)}
