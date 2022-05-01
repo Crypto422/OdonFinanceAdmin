@@ -20,7 +20,7 @@ const LendDetail = ({
   const {
     getUsdcTokenContract,
     getUsdtTokenContract,
-    getWbtcTokenContract,
+    getBtcTokenContract,
     library,
     themeMode,
     getLoanContract,
@@ -65,7 +65,7 @@ const LendDetail = ({
     } else if (mType === 3) {
       contract = getUsdtTokenContract(library.getSigner());
     } else if (mType === 4) {
-      contract = getWbtcTokenContract(library.getSigner());
+      contract = getBtcTokenContract(library.getSigner());
     }
 
 
@@ -85,7 +85,7 @@ const LendDetail = ({
     setIsConfirm(true);
     const contract = getLoanContract(library.getSigner());
     const res = await contract
-      .init(ethers.utils.parseUnits(information.amount, 18), mType)
+      .depositToken(ethers.utils.parseUnits(information.amount, 18), mType)
       .catch((err) => {
         setIsConfirm(false)
         console.log("err", err)
