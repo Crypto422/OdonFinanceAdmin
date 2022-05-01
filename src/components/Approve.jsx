@@ -19,6 +19,8 @@ export default function Approve({
   const [balance, setBalance] = useState(null);
   const [isApproving, setIsApproving] = useState(false);
 
+  
+
   const handleApprove = async () => {
 
     let tokenContract = getOdonTokenContract(library.getSigner());

@@ -14,16 +14,15 @@ import { PieChart } from '@rsuite/charts';
 export default function Analyse() {
     const {
         themeMode,
-        account,
         contractOdonLiquidity,
         contractOdonLiquidityInUsd,
-        connectWallet,
         contractUsdcLiquidity,
         contractUsdcLiquidityInUsd,
         contractUsdtLiquidity,
         contractUsdtLiquidityInUsd,
         contractBtcLiquidity,
         contractBtcLiquidityInUsd,
+        setContractTotalLiquidity,
         loanCount,
         lendCount
     } =
@@ -35,6 +34,11 @@ export default function Analyse() {
     const [odonPercent, setOdonPercent] = useState();
 
     const [totalLiquidityInusd, setTotalLiquidity] = useState();
+
+    
+  useEffect(() => {
+    setContractTotalLiquidity();
+  },[])
 
     useEffect(() => {
         if (contractOdonLiquidityInUsd >= 0 && contractUsdcLiquidityInUsd >= 0 && contractUsdtLiquidityInUsd >= 0 && contractBtcLiquidityInUsd >= 0) {
