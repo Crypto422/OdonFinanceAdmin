@@ -9,7 +9,7 @@ import { BsSun } from "react-icons/bs";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 let commonCss =
-  "font-bold px-2 md:px-4 py-1  cursor-pointer rounded-2xl hover:text-gray-500 transition duration-200 flex ";
+  "font-bold px-2 md:px-4 py-1 cursor-pointer rounded-2xl hover:text-gray-500 transition duration-200 flex ";
 
 const NavItem = ({ active, content,handleOnClick }) => {
   const { getLoanContract,themeMode, library} = useContext(LendAndLoanContext);
@@ -85,7 +85,7 @@ export default function Navbar() {
       <div className={`w-[fit-content] font-festive text-3xl cursor-pointer hover:scale-125 transition duration-200`}>
         Odon Finance
       </div>
-      <div className={"fixed bottom-5 left-[50%] translate-x-[-50%] md:static md:translate-x-[%] p-[3px]  flex rounded-full md:w-[fit-content] place-self-center" + (!themeMode ? " bg-[#191b1f]" : " bg-gray-200")}>
+      <div className={"fixed bottom-5 z-50 left-[50%] translate-x-[-50%] md:static md:translate-x-[%] p-[3px]  flex rounded-full md:w-[fit-content] place-self-center" + (!themeMode ? " bg-[#191b1f]" : " bg-gray-200")}>
         {navMenu.map((item, index) => (
           <NavItem
             key={item + index}
