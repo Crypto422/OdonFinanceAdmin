@@ -9,7 +9,7 @@ import { LendAndLoanContext } from "./context/LendAndLoanContext";
 import { ConnectWallet, DisConnectWallet } from "./components/ConnectWallet";
 
 function App() {
-  const { networkId, themeMode, setThemeMode, setIsShowDisConnectModal, isShowConnectModal, isShowDisConnectModal, setIsShowConnectModal, contractUsdcLiquidity, contractUsdtLiquidity, contractBtcLiquidity, isSupportMetaMask } =
+  const { networkId, themeMode, setThemeMode, setIsShowDisConnectModal, isShowConnectModal, isShowDisConnectModal, setIsShowConnectModal,contractOdonLiquidity, contractUsdcLiquidity, contractUsdtLiquidity, contractBtcLiquidity, isSupportMetaMask } =
     useContext(LendAndLoanContext);
 
     useEffect(() => {
@@ -68,10 +68,15 @@ function App() {
         </div>
       )}
       <div className={"fixed top-0 left-0 right-0 bottom-0 z-[-1] pointer-events-none w-[200vw] " + (themeMode ? "bg-shine-white bg-main-white" : "bg-shine bg-main")}></div>
-      <div className="hidden md:flex  justify-center items-center fixed right-3 bottom-20 text-gray-300">
+      <div className="hidden md:flex  justify-center items-center fixed right-3 bottom-24 text-gray-300">
         <div className="h-[10px] w-[10px] rounded-full mr-1 bg-green-500"></div>
         <div className={(themeMode ? "text-black" : "")}>
           Finance liquidity
+        </div>
+      </div>
+      <div className="hidden md:flex  justify-center items-center fixed right-3 bottom-16 text-gray-300">
+        <div className={(themeMode ? "text-black" : "")}>
+          {contractOdonLiquidity ? contractOdonLiquidity + " ODON" : "Fetching..."}
         </div>
       </div>
       <div className="hidden md:flex  justify-center items-center fixed right-3 bottom-12 text-gray-300">
@@ -89,6 +94,7 @@ function App() {
           {contractBtcLiquidity ? contractBtcLiquidity + " BTC" : "Fetching..."}
         </div>
       </div>
+     
     </div >
   );
 }

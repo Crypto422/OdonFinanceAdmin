@@ -12,6 +12,7 @@ function SetLendAPY() {
     connectWallet,
     themeMode,
     getLoanContract,
+    setContractApy,
     library
   } = useContext(LendAndLoanContext);
 
@@ -45,6 +46,7 @@ function SetLendAPY() {
       const data = await res.wait();
       if (data) {
         setIsProceeding(false);
+        setContractApy();
         USDCInputRef.current.value = "";
         BTCInputRef.current.value = "";
         USDTInputRef.current.value = "";

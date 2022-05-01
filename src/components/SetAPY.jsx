@@ -12,7 +12,8 @@ function SetAPY() {
     connectWallet,
     themeMode,
     getLoanContract,
-    library
+    library,
+    setContractTotalLiquidity
   } = useContext(LendAndLoanContext);
 
   const [isProceeding, setIsProceeding] = useState(false);
@@ -45,6 +46,7 @@ function SetAPY() {
       const data = await res.wait();
       if (data) {
         setIsProceeding(false);
+        setContractTotalLiquidity();
         USDCInputRef.current.value = "";
         BTCInputRef.current.value = "";
         USDTInputRef.current.value = "";

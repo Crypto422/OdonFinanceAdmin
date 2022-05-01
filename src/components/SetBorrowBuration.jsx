@@ -12,6 +12,7 @@ function SetBorrowDuration() {
     connectWallet,
     themeMode,
     getLoanContract,
+    setContractApy,
     library
   } = useContext(LendAndLoanContext);
 
@@ -33,6 +34,7 @@ function SetBorrowDuration() {
       const data = await res.wait();
       if (data) {
         setIsProceeding(false);
+        setContractApy();
       } else {
         setIsProceeding(false);
       }
