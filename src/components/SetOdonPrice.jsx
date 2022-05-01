@@ -33,7 +33,7 @@ function SetOdonPrice() {
       const contract = await getLoanContract(library.getSigner());
       const res = await contract
         .setPriceOdon(
-          ethers.utils.parseUnits(priceInputRef.current.value, 18),
+          ethers.utils.parseUnits(priceInputRef.current.value, 8),
         )
         .catch((err) => {
           setIsProceeding(false);
