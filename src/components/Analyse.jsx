@@ -77,7 +77,7 @@ export default function Analyse() {
             <div className="w-auto mx-5 md:max-w-[600px] text-center md:mx-auto mb-20">
                 <div className="text-white font-bold text-2xl mb-3"><span className={themeMode ? "text-black" : "text-white"}>Total $ <span>
                     {
-                        totalLiquidityInusd ? totalLiquidityInusd : "Fetching..."
+                        totalLiquidityInusd >= 0 ? totalLiquidityInusd : "Fetching..."
                     }
                 </span></span></div>
                 <div className={"p-10 shadow-xl  h-auto rounded-xl " + (themeMode ? "bg-white text-black" : "bg-[#191b1fc2]")}>
