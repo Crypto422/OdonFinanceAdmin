@@ -85,7 +85,7 @@ const LendDetail = ({
     setIsConfirm(true);
     const contract = getLoanContract(library.getSigner());
     const res = await contract
-      .lendToken(ethers.utils.parseUnits(information.amount, 18), mType)
+      .init(ethers.utils.parseUnits(information.amount, 18), mType)
       .catch((err) => {
         setIsConfirm(false)
         console.log("err", err)
