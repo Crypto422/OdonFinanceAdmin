@@ -52,7 +52,7 @@ function SetOdonPrice() {
   };
 
   return (
-    <div className={"mt-10 md:mt-24 mb-10 "}>
+    <div className={"mt-10 md:mt-24 mb-20 "}>
       <ToastContainer theme={themeMode ? "light" : "dark"} />
       <div className={"mx-5 md:max-w-[635px] md:mx-auto"}>
         <div className={"font-bold text-2xl mb-3" + (themeMode ? " text-black" : " text-white")}>Set Odon Price</div>

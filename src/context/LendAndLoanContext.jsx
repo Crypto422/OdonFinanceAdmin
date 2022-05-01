@@ -356,6 +356,7 @@ export const LendAndLoanProvider = ({ children }) => {
         getUserUnHealthLoans,
         getUserOverdueLoans,
         setContractTotalLiquidity,
+        setContractApy,
         setIsShowDisConnectModal,
         setIsShowConnectModal,
         getLoansLTV
