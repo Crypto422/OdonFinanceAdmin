@@ -82,8 +82,8 @@ export default function Analyse() {
                 </span></span></div>
                 <div className={"p-10 shadow-xl  h-auto rounded-xl " + (themeMode ? "bg-white text-black" : "bg-[#191b1fc2]")}>
                     {" "}
-                    <div className="mt-3 ">
-                        <table style={{ "width": "100%" }}>
+                    <div className="mt-3 " style={{"overflow": "auto"}}>
+                        <table style={{ "width": "100%" , "minWidth": "450px"}}>
                             <thead>
                                 <tr></tr>
                                 <tr></tr>
