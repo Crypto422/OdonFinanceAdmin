@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import {Manage} from "./components/Manage";
-import Lend from "./components/Setting";
+import Setting from "./components/Setting";
 import Navbar from "./components/Navbar";
 import Error from "./components/Error";
 import Redemption from "./components/Analyse";
@@ -40,7 +40,7 @@ function App() {
               </div>
               <Routes>
                 <Route path="/manage" element={<Manage />} />
-                <Route path="/setting" element={<Lend />} />
+                <Route path="/setting" element={<Setting />} />
                 <Route path="/analytics" element={<Redemption />} />
                 <Route path="*" element={<Error />} />
               </Routes>

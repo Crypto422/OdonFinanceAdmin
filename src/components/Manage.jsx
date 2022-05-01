@@ -391,7 +391,6 @@ function Manage() {
             <div className="my-4 text-right text-sm cursor-auto select-none">
        
             </div>
-            <div></div>
             {!isValidLendAmount && (
               <div className="p-0 flex justify-center items-center text-red-500">
                 <AiFillWarning className="mr-2" />

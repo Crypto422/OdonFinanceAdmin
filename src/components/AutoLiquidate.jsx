@@ -13,7 +13,7 @@ function AutoLiquidate() {
     getLoanContract,
     library
   } = useContext(LendAndLoanContext);
-  
+
   const [isProceeding, setIsProceeding] = useState(false);
 
   const handleLoanProceed = async () => {
@@ -38,9 +38,15 @@ function AutoLiquidate() {
         <div className={"p-4 shadow-xl  h-auto rounded-xl" + (themeMode ? " bg-white text-black" : " bg-[#191b1fc2] text-white")}>
           {" "}
           <div className="mt-3">
-            <p className="my-1 mb-2">
-              Do you want liquidate expired and risk loans?
-            </p>
+            {
+              isProceeding ? <p className="my-1 mb-2">
+                Liquidating now...
+              </p> :
+                <p className="my-1 mb-2">
+                  Do you want liquidate expired and risk loans?
+                </p>
+            }
+
 
           </div>
           {!account ? (
