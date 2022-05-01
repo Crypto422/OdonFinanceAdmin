@@ -39,6 +39,7 @@ function App() {
                 <Navbar />
               </div>
               <Routes>
+                <Route path="/" element={<Manage />} />
                 <Route path="/manage" element={<Manage />} />
                 <Route path="/setting" element={<Setting />} />
                 <Route path="/analytics" element={<Redemption />} />
