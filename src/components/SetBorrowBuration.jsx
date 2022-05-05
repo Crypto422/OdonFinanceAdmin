@@ -42,11 +42,7 @@ function SetBorrowDuration() {
   };
 
   const handleDropButtonClick = (id) => {
-    if (id === 1) {
-      setLendType(1);
-    } else if (id === 2) {
-      setLendType(2);
-    }
+      setLendType(id);
   }
 
   return (
@@ -76,6 +72,9 @@ function SetBorrowDuration() {
                 {mType === 2 && (
                   <p className="px-2">30, 60, 90 days</p>
                 )}
+                {mType === 3 && (
+                  <p className="px-2">90, 180, 360 days</p>
+                )}
                 {
                   !isDropDown ? 
                   <HiArrowSmDown className="text-2xl md:text-3xl" /> : <></>
@@ -93,6 +92,12 @@ function SetBorrowDuration() {
                       className="relative flex   border-b-2 border-teal-600 items-center cursor-pointer text-xl hover:bg-gray-500 px-6 py-1 transition"
                     >
                       30, 60, 90 days{" "}
+                    </div>
+                    <div
+                      onClick={() => handleDropButtonClick(3)}
+                      className="relative flex   border-b-2 border-teal-600 items-center cursor-pointer text-xl hover:bg-gray-500 px-6 py-1 transition"
+                    >
+                      90, 180, 360 days{" "}
                     </div>
                   </div>
                 ) : (
