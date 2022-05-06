@@ -123,7 +123,7 @@ const LendDetail = ({
             <a
               rel="noreferrer noopenner"
               target="_blank"
-              href={"https://rinkeby.etherscan.io/tx/" + lendTokenHash}
+              href={"https://moonriver.moonscan.io/tx/" + lendTokenHash}
             >
               {lendTokenHash}
             </a>
@@ -142,7 +142,7 @@ const LendDetail = ({
               target="_blank"
               rel="noopenner noreferrer"
               href={
-                "https://rinkeby.etherscan.io/tx/" +
+                "https://moonriver.moonscan.io/tx/" +
                 approveTransactionDetail.hash
               }
             >
@@ -169,7 +169,7 @@ const LendDetail = ({
               target="_blank"
               rel="noopenner noreferrer"
               href={
-                "https://rinkeby.etherscan.io/address/" +
+                "https://moonriver.moonscan.io/address/" +
                 loanContractAddress
               }
             >

@@ -39,7 +39,7 @@ export const LendAndLoanProvider = ({ children }) => {
   const [btcBorrowApy, setBtcBorrowApy] = useState();
   const [firstAddApy, setFirstAddApy] = useState();
   const [secondAddApy, setSecondAddApy] = useState();
-  const [loanModeFirst, setLoanModeFirst] = useState();
+  const [loanMode, setLoanMode] = useState();
   const [usdcLTV, setUsdcLTV] = useState();
   const [usdtLTV, setUsdtLTV] = useState();
   const [btcLTV, setBtcLTV] = useState();
@@ -256,7 +256,7 @@ export const LendAndLoanProvider = ({ children }) => {
   const setContractApy = async () => {
     if (library) {
       const contract = getLoanContract(library);
-      const loanModeFirst = await contract.loanModeFirst();
+      const loanMode = await contract.loanMode();
       const usdclendapy = await contract.usdcLendAPY();
       const usdtlendapy = await contract.usdtLendAPY();
       const btclendapy = await contract.btcLendAPY();
@@ -304,7 +304,7 @@ export const LendAndLoanProvider = ({ children }) => {
       );
 
 
-      setLoanModeFirst(loanModeFirst)
+      setLoanMode(loanMode)
 
     }
   };
@@ -383,7 +383,7 @@ export const LendAndLoanProvider = ({ children }) => {
         btcLendApy,
         firstAddApy,
         secondAddApy,
-        loanModeFirst,
+        loanMode,
         isShowConnectModal,
         isShowDisConnectModal,
         usdcLTV,

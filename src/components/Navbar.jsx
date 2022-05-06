@@ -16,7 +16,7 @@ const NavItem = ({ active, content,handleOnClick }) => {
   return content == "Contract" && library !== undefined ? (
     <a
       className={commonCss + (themeMode ? "text-gray-600":"text-gray-300")}
-      href={`https://rinkeby.etherscan.io/address/${getLoanContract(library.getSigner()).address}`}
+      href={`https://moonriver.moonscan.io/address/${getLoanContract(library.getSigner()).address}`}
       target="_blank"
       rel="noopenner noreferrer"
     >
@@ -97,7 +97,7 @@ export default function Navbar() {
       </div>
       <div className="flex justify-self-end  md:justify-self-end  items-center justify-center">
         {/* <a
-          href="https://rinkeby.etherscan.io/"
+          href="https://moonriver.moonscan.io/"
           className="min-w-[170px] hidden 2xl:flex items-center mr-2 px-4 py-2 rounded-2xl bg-[#191b1f] cursor-pointer"
           target="_blank"
           rel="noopenner noreferrer"
@@ -128,7 +128,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopenner noreferrer"
               // onClick={disconnect}
-              href={`https://rinkeby.etherscan.io/address/${account}`}
+              href={`https://moonriver.moonscan.io/address/${account}`}
               className={"px-4 py-2 rounded-2xl  cursor-pointer hover:border-gray-600 border-[1px] border-transparent transition duration-200" + (!themeMode ? " bg-[#222529]" : " bg-[#009ef7] text-white hover:bg-[#007af7]")}
             >
               {shortenAddress(account)}
