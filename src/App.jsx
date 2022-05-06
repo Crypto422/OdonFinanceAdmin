@@ -33,7 +33,7 @@ function App() {
       />
       {isSupportMetaMask ? (
         networkId != undefined ? (
-          networkId == 1285 ? (
+          networkId == 4 ? (
             <div>
               <div>
                 <Navbar />
