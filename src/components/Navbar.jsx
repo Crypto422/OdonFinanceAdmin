@@ -40,7 +40,7 @@ const NavItem = ({ active, content,handleOnClick }) => {
 };
 
 export default function Navbar() {
-  const { connectWallet, account,themeMode, setThemeMode, library,getEthTokenContract, getOdonTokenContract } =
+  const { connectWallet, account,themeMode, odonAccBalance ,setThemeMode, library,getEthTokenContract, getOdonTokenContract } =
     useContext(LendAndLoanContext);
   const [isActive, setIsActive] = useState("Loan");
   const [isDropDown, setIsDropDown] = useState(false);
@@ -115,12 +115,12 @@ export default function Navbar() {
         ) : (
           <div className={"flex items-center rounded-2xl p-[1px]" + (!themeMode ? " bg-[#191b1f]": " bg-gray-200")}>
             <div
-              title={userBalance + " " + (isShowingToken ? "ODON" : "MOVR")}
+              title={odonAccBalance + " " + (isShowingToken ? "ODON" : "MOVR")}
               // onClick={() => changeBalance()}
               className="hidden lg:flex rounded-tl-2xl rounded-bl-2xl py-2  cursor-pointer hover:border-gray-600 border-r-[0px] border-l-[1px] border-y-[1px] border-transparent transition duration-200"
             >
               <p className="px-3 select-none max-w-[120px] truncate">
-                {userBalance}
+                {odonAccBalance}
               </p>
               <p className="mr-2">{isShowingToken ? "ODON" : "rETH"}</p>
             </div>
