@@ -246,16 +246,16 @@ export const LendAndLoanProvider = ({ children }) => {
 
 
       setOdonContractLiquidityInUsd(
-        Number((odonInusd.toString())) / 100000000
+        Number(odonInusd.toString() / 10 ** 18)
       );
       setUsdcContractLiquidityInUsd(
-        Number((usdcInusd.toString())) / 100000000
+        Number(usdcInusd.toString() / 10 ** 6)
       );
       setUsdtContractLiquidityInUsd(
-        Number((usdtInusd.toString())) / 100000000
+        Number(usdtInusd.toString() / 10 ** 6)
       );
       setBtcContractLiquidityInUsd(
-        Number((btcInusd.toString())) / 100000000
+        Number(btcInusd.toString() / 10 ** 8)
       );
     }
   };
