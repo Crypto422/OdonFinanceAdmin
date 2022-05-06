@@ -9,7 +9,7 @@ export default function LoanDetails({ information, setStep, stepNow }) {
         Loan amount: {information.loanAmount}
         {information.mtype === 2 && "USDC"}
         {information.mtype === 3 && "USDT"}
-        {information.mtype === 4 && "BTC"}
+        {information.mtype === 4 && "WBTC"}
       </div>
       <div className="my-2 break-words">
         Collateral amount: {information.collateralAmount}&nbsp; 

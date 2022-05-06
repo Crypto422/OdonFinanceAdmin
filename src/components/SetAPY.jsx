@@ -120,7 +120,7 @@ function SetAPY() {
                 <div
                   className={"cursor-pointer relative flex items-center px-2 py-2 md:px-3 rounded-2xl cursor-pointer transition text-xl md:text-2xl select-none text-center" + (themeMode ? " bg-gray-300  hover:bg-gray-400" : " bg-[#1a1c20c2]")}
                 >
-                  <p className="px-2">BTC</p>
+                  <p className="px-2">WBTC</p>
                 </div>
               </div>
             </div>

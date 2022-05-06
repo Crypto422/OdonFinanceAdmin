@@ -127,7 +127,7 @@ function WithDraw() {
                     <p className="px-2">USDT</p>
                   )}
                   {mType === 4 && (
-                    <p className="px-2">BTC</p>
+                    <p className="px-2">WBTC</p>
                   )}
                   {mType === 5 && (
                     <p className="px-2">ODON</p>
@@ -155,7 +155,7 @@ function WithDraw() {
                       className="flex items-center cursor-pointer text-xl hover:bg-gray-500 px-6 py-1 transition"
                     >
                       <BsCoin className="mr-2" />
-                      BTC{" "}
+                      WBTC{" "}
                     </div>
                     <div
                       onClick={() => handleDropClick(5)}
@@ -178,7 +178,7 @@ function WithDraw() {
               Minimum withdraw amount is {validateLoanAmount}&nbsp;
               {mType === 2 && "USDC"}
               {mType === 3 && "USDT"}
-              {mType === 4 && "BTC"}
+              {mType === 4 && "WBTC"}
               {mType === 5 && "ODON"}
             </p>
           )}

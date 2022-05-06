@@ -134,7 +134,7 @@ const LendDetail = ({
           <div>Deposite amount: {information.amount}&nbsp;
             {mType === 2 && "USDC"}
             {mType === 3 && "USDT"}
-            {mType === 4 && "BTC"}
+            {mType === 4 && "WBTC"}
           </div>
           <div className="break-words">
             Approve Transaction Hash:{" "}
@@ -180,7 +180,7 @@ const LendDetail = ({
             Approve amount: {information.amount}&nbsp;
             {mType === 2 && "USDC"}
             {mType === 3 && "USDT"}
-            {mType === 4 && "BTC"}
+            {mType === 4 && "WBTC"}
           </div>
           <div className="my-2">
             {" "}
@@ -355,7 +355,7 @@ function Manage() {
                     <p className="px-2">USDT</p>
                   )}
                   {mType === 4 && (
-                    <p className="px-2">BTC</p>
+                    <p className="px-2">WBTC</p>
                   )}
                   <HiArrowSmDown className="text-2xl md:text-3xl" />
                 </div>
@@ -380,7 +380,7 @@ function Manage() {
                       className="flex items-center cursor-pointer text-xl hover:bg-gray-500 px-6 py-1 transition"
                     >
                       <BsCoin className="mr-2" />
-                      BTC{" "}
+                      WBTC{" "}
                     </div>
                   </div>
                 ) : (
@@ -397,7 +397,7 @@ function Manage() {
                 <div>
                   {mType === 2 && "Minimum lend amount 0.01 USDC"}
                   {mType === 3 && "Minimum lend amount 0.01 USDT"}
-                  {mType === 4 && "Minimum lend amount 0.001 BTC"}
+                  {mType === 4 && "Minimum lend amount 0.001 WBTC"}
                 </div>
               </div>
             )}

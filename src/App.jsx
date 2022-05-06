@@ -92,7 +92,7 @@ function App() {
       </div>
       <div className="hidden md:flex  justify-center items-center fixed right-3 bottom-4 text-gray-300">
         <div className={(themeMode ? "text-black" : "")}>
-          {contractBtcLiquidity ? contractBtcLiquidity + " BTC" : "Fetching..."}
+          {contractBtcLiquidity ? contractBtcLiquidity + " WBTC" : "Fetching..."}
         </div>
       </div>
      

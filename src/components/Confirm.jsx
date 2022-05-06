@@ -36,7 +36,7 @@ export default function Confirm({
       <div className="my-2">Confirm withdraw for {information.loanAmount} &nbsp;
       {information.mtype === 2 && "USDC"}
       {information.mtype === 3 && "USDT"}
-      {information.mtype === 4 && "BTC"}
+      {information.mtype === 4 && "WBTC"}
       {information.mtype === 5 && "ODON"}
       </div>
       {!isConfirming ? (

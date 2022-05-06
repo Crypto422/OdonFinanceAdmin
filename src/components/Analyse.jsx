@@ -61,14 +61,14 @@ export default function Analyse() {
     const sampleData = [
         ['USDC', 0],
         ['USDT', 0],
-        ['BTC', 0],
+        ['WBTC', 0],
         ['ODON', 0],
     ];
 
     const realeDate = [
         ['USDC', usdcPercent],
         ['USDT', usdtPercent],
-        ['BTC', btcPercent],
+        ['WBTC', btcPercent],
         ['ODON', odonPercent],
     ]
 
@@ -197,7 +197,7 @@ export default function Analyse() {
                                         <div
                                             className="flex items-center cursor-pointer text-xl transition"
                                         >
-                                            BTC&nbsp;Liquidity
+                                            WBTC&nbsp;Liquidity
                                         </div>
                                     </td>
                                     <td className="pt-6">
@@ -206,7 +206,7 @@ export default function Analyse() {
                                         >
                                             {
                                                 contractBtcLiquidity ? contractBtcLiquidity : "Fetching..."
-                                            }&nbsp;BTC ($&nbsp;
+                                            }&nbsp;WBTC ($&nbsp;
                                             {
                                                 contractBtcLiquidityInUsd >= 0 ? contractBtcLiquidityInUsd : "Fetching..."
                                             })
