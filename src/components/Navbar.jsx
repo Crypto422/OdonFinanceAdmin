@@ -147,7 +147,7 @@ export default function Navbar() {
           </div>
           {isDropDown ? (
             <div className={"absolute right-0 top-[100%] mt-2 w-48 px-5 py-3 shadow rounded-md shadow-lg font-semibold select-none" + (!themeMode ? " bg-[#212429] text-gray-300":" bg-white text-gray-900")}>
-              <a
+              {/* <a
                 href="https://google.com/"
                 target="_blank"
                 rel="noopenner noreferrer"
@@ -155,7 +155,7 @@ export default function Navbar() {
               >
                 <div className="">ODON Faucet</div>
                 <FaFaucet className="text-xl" />
-              </a>
+              </a> */}
               <a  onClick={handleThemeChange}
                 rel="noopenner noreferrer"
                 className="flex justify-between items-center py-1 hover:cursor-pointer"
