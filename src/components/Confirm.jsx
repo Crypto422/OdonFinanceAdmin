@@ -23,7 +23,10 @@ export default function Confirm({
         decimal = 6
       } else if (information.mtype === 4) {
         decimal = 8
+      } else if (information.mtype === 5) {
+        decimal = 18
       }
+
       const res = await contract
         .withDrawReserve(
           ethers.utils.parseUnits(information.loanAmount, decimal),
