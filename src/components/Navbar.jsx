@@ -115,7 +115,7 @@ export default function Navbar() {
         ) : (
           <div className={"flex items-center rounded-2xl p-[1px]" + (!themeMode ? " bg-[#191b1f]": " bg-gray-200")}>
             <div
-              title={userBalance + " " + (isShowingToken ? "ODON" : "ETH")}
+              title={userBalance + " " + (isShowingToken ? "ODON" : "MOVR")}
               // onClick={() => changeBalance()}
               className="hidden lg:flex rounded-tl-2xl rounded-bl-2xl py-2  cursor-pointer hover:border-gray-600 border-r-[0px] border-l-[1px] border-y-[1px] border-transparent transition duration-200"
             >

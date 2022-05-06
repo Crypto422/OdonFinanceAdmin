@@ -13,7 +13,7 @@ export default function LoanDetails({ information, setStep, stepNow }) {
       </div>
       <div className="my-2 break-words">
         Collateral amount: {information.collateralAmount}&nbsp; 
-        { information.ctype === 1 && "ETH"}
+        { information.ctype === 1 && "MOVR"}
         { information.ctype === 5 && "ODON"}
       </div>
       <div className="my-2 break-words">

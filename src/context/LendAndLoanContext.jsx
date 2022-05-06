@@ -47,6 +47,11 @@ export const LendAndLoanProvider = ({ children }) => {
   const [loanCount, setLoanCount] = useState();
   const [lendCount, setLendCount] = useState();
 
+  const [usdcAccBalance, setUsdcAccBalance] = useState();
+  const [odonAccBalance, setOdonAccBalance] = useState();
+  const [usdtAccBalance, setUsdtAccBalance] = useState();
+  const [wbtcAccBalance, setWbtcAccBalance] = useState();
+
 
 
   let library;
@@ -119,7 +124,7 @@ export const LendAndLoanProvider = ({ children }) => {
     if (library) {
       if (account) {
         let balance = await library.getBalance(account);
-        return Number(ethers.utils.formatEther(balance.toString())).toFixed(2);
+        return Number(ethers.utils.formatEther(balance.toString()));
       }
     }
   };
@@ -129,7 +134,7 @@ export const LendAndLoanProvider = ({ children }) => {
       if (account) {
         const contract = getOdonTokenContract(library);
         const res = await contract.balanceOf(account);
-        return res.toString() / 10 ** 18
+        return Number(ethers.utils.formatEther(res.toString()));
       }
     }
   }
@@ -139,7 +144,7 @@ export const LendAndLoanProvider = ({ children }) => {
       if (account) {
         const contract = getUsdcTokenContract(library);
         const res = await contract.balanceOf(account);
-        return res.toString() / 10 ** 18
+        return Number(res.toString() / 10 ** 6);
       }
     }
   }
@@ -149,7 +154,7 @@ export const LendAndLoanProvider = ({ children }) => {
       if (account) {
         const contract = getUsdtTokenContract(library);
         const res = await contract.balanceOf(account);
-        return res.toString() / 10 ** 18
+        return Number(res.toString() / 10 ** 6);
       }
     }
   }
@@ -158,7 +163,7 @@ export const LendAndLoanProvider = ({ children }) => {
       if (account) {
         const contract = getBtcTokenContract(library);
         const res = await contract.balanceOf(account);
-        return res.toString() / 10 ** 18
+        return Number(res.toString() / 10 ** 8)
       }
     }
   }
@@ -191,15 +196,7 @@ export const LendAndLoanProvider = ({ children }) => {
       }
     }
   };
-  const getTotalLiquidityInUsd = async (mtype) => {
-    if (library) {
-      const contract = getLoanContract(library.getSigner());
-      if (account) {
-        const liquidity = await contract.getTotalLiquidityInUSD(mtype);
-        return liquidity;
-      }
-    }
-  };
+
   const setContractTotalLiquidity = async () => {
     if (library) {
       const contract = getLoanContract(library);
@@ -217,6 +214,16 @@ export const LendAndLoanProvider = ({ children }) => {
       const usdtInusd = await contract.getTotalLiquidityInUSD(3);
       const btcInusd = await contract.getTotalLiquidityInUSD(4);
 
+      const usdcbalance = await getAccUSDCBalance();
+      const usdtbalance = await getAccUSDTBalance();
+      const wbtcbalance = await getAccBTCBalance();
+      const odonbalance = await getAccODONBalance();
+
+      setUsdcAccBalance(usdcbalance);
+      setUsdtAccBalance(usdtbalance);
+      setWbtcAccBalance(wbtcbalance);
+      setOdonAccBalance(odonbalance);
+
       setLoanCount(
         loancount.toString()
       )
@@ -228,13 +235,13 @@ export const LendAndLoanProvider = ({ children }) => {
         Number(ethers.utils.formatEther(odon.toString())).toFixed(3)
       );
       setUsdcContractLiquidity(
-        Number(ethers.utils.formatEther(usdc.toString())).toFixed(3)
+        Number(usdc.toString() / 10 ** 6).toFixed(3)
       );
       setUsdtContractLiquidity(
-        Number(ethers.utils.formatEther(usdt.toString())).toFixed(3)
+        Number(usdt.toString() / 10 ** 6).toFixed(3)
       );
       setbtcContractLiquidity(
-        Number(ethers.utils.formatEther(btc.toString())).toFixed(3)
+        Number(btc.toString() / 10 ** 8).toFixed(3)
       );
 
 
@@ -391,6 +398,10 @@ export const LendAndLoanProvider = ({ children }) => {
         btcLTV,
         loanCount,
         lendCount,
+        usdcAccBalance,
+        usdtAccBalance,
+        wbtcAccBalance,
+        odonAccBalance,
         connectWallet,
         disconnectWallet,
         disconnect,

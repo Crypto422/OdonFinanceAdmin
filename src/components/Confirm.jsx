@@ -16,9 +16,17 @@ export default function Confirm({
     if (account) {
       setIsConfirming(true);
       const contract = await getLoanContract(library.getSigner());
+      let decimal;
+      if (information.mtype === 2 ) {
+        decimal = 6
+      } else if(information.mtype === 3) {
+        decimal = 6
+      } else if (information.mtype === 4) {
+        decimal = 8
+      }
       const res = await contract
         .withDrawReserve(
-          ethers.utils.parseUnits(information.loanAmount, 18),
+          ethers.utils.parseUnits(information.loanAmount, decimal),
           information.mtype
         )
         .catch((err) => {

@@ -48,10 +48,24 @@ function WithDraw() {
       setIsValidLoanAmount(false);
     } else {
       setIsProceeding(true);
+      setIsValidLoanAmount(true);
       const contract = getLoanContract(library.getSigner());
+
+      let decimal;
+      if (mType === 2) {
+        decimal = 6
+      } else if (mType === 3) {
+        decimal = 6
+      } else if (mType === 4) {
+        decimal = 8
+      }
+      else if (mType === 5) {
+        decimal = 18
+      }
+
       const loanAmountToWei = ethers.utils.parseUnits(
         ethInputRef.current.value,
-        18
+        decimal
       );
       const res = await contract.checkEnoughLiquidity(loanAmountToWei, mType);
       if (res) {
@@ -64,8 +78,9 @@ function WithDraw() {
         });
       } else {
         notify();
+        setIsProceeding(false);
       }
-      
+
     }
   };
 
@@ -74,9 +89,9 @@ function WithDraw() {
     if (_type === 2) {
       setValidateLoanAmount(0.01);
     } else if (_type === 3) {
-      setValidateLoanAmount(0.05);
+      setValidateLoanAmount(0.01);
     } else if (_type === 4) {
-      setValidateLoanAmount(0.03);
+      setValidateLoanAmount(0.0001);
     }
     else if (_type === 5) {
       setValidateLoanAmount(0.5);
@@ -171,7 +186,7 @@ function WithDraw() {
               </div>
             </div>
           </div>
-          
+
           {!isValidLoanAmount && (
             <p className="p-0 flex justify-center items-center text-red-500">
               <AiFillWarning className="mr-2" />
@@ -182,7 +197,7 @@ function WithDraw() {
               {mType === 5 && "ODON"}
             </p>
           )}
-          
+
           {!account ? (
             <div
               onClick={() => connectWallet()}

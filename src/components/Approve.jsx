@@ -60,12 +60,12 @@ export default function Approve({
           </div>
           <div className="my-2 break-words">
             Approve spender amount: {information.collateralAmount}&nbsp;
-            {information.ctype === 1 && "ETH"}
+            {information.ctype === 1 && "MOVR"}
             {information.ctype === 5 && "ODON"}
           </div>
           <div className="my-2 break-words mb-10">
             User balances: {balance} &nbsp;
-            {information.ctype === 1 && "ETH"}
+            {information.ctype === 1 && "MOVR"}
             {information.ctype === 5 && "ODON"}
           </div>
           {balance < information.collateralAmount ? (
