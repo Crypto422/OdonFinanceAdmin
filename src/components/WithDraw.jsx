@@ -23,7 +23,7 @@ function WithDraw() {
   const [isProceeding, setIsProceeding] = useState(false);
   const [isShowLoanDetails, setIsShowLoanDetails] = useState(false);
   const [loanInformation, setLoanInformation] = useState();
-  const [validateLoanAmount, setValidateLoanAmount] = useState(0.1);
+  const [validateLoanAmount, setValidateLoanAmount] = useState(0.01);
   const ethInputRef = useRef();
   const dropDownRef = useRef();
 
@@ -91,7 +91,7 @@ function WithDraw() {
     } else if (_type === 3) {
       setValidateLoanAmount(0.01);
     } else if (_type === 4) {
-      setValidateLoanAmount(0.0001);
+      setValidateLoanAmount(0.00001);
     }
     else if (_type === 5) {
       setValidateLoanAmount(0.5);
