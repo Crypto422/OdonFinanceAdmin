@@ -415,9 +415,9 @@ function Manage() {
                 <div className="p-0 flex justify-center items-center text-red-500">
                   <AiFillWarning className="mr-2" />
                   <div>
-                  {mType === 2 && `Minimum lend amount ${validateValue} USDC`}
-                  {mType === 3 && `Minimum lend amount  ${validateValue} USDT`}
-                  {mType === 4 && `Minimum lend amount  ${validateValue} WBTC`}
+                    {mType === 2 && "Minimum deposite amount 0.01 USDC"}
+                    {mType === 3 && "Minimum deposite amount 0.01 USDT"}
+                    {mType === 4 && "Minimum deposite amount 0.0001 WBTC"}
                   </div>
                 </div>
               )}
