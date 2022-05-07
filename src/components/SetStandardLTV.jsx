@@ -69,7 +69,7 @@ function SetStandardLTV() {
           <div className="mt-3">
 
             <p className="my-1 mb-2">
-              Please set the APYs for Lenders!
+              Please set the LTV for Borrowers!
             </p>
 
             <div className={"flex items-center w-full rounded h-16 outline-none px-5  border-[1px]  hover:border-gray-600 transition  font-inter" + (themeMode ? " bg-gray-100" : " bg-[#33373f81] border-transparent")}>
