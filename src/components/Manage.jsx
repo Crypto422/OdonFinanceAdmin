@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { BiHappyBeaming } from "react-icons/bi";
 import { WithDraw } from "./WithDraw";
-// import { AutoLiquidate } from "./AutoLiquidate";
+import { Autoliquidate } from "./AutoLiquidate";
 
 const LendDetail = ({
   isShow,
@@ -124,6 +124,8 @@ const LendDetail = ({
           onClick={() => close()}
         />
       </div>
+
+   
 
       {isDone ? (
         <div className={(themeMode ? " text-black" : "")}>
@@ -334,8 +336,8 @@ function Manage() {
   }
 
   return (
-    <>
-      {/* <AutoLiquidate/> */}
+    <div className="mb-10">
+      <Autoliquidate/>
       <div className="mt-10 md:mt-24">
         <LendDetail
           lendRef={lendInputRef}
@@ -446,7 +448,7 @@ function Manage() {
         </div>
       </div>
       <WithDraw />
-    </>
+    </div>
 
   );
 }

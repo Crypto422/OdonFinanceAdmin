@@ -20,6 +20,7 @@ export const LendAndLoanProvider = ({ children }) => {
   const [networkId, setNetworkId] = useState();
   const [themeMode, setTheme] = useState(false);
   const [contractOdonLiquidity, setOdonContractLiquidity] = useState();
+  const [contractTotalLiquiditedAmount, setTotalContractLiquiditedAmount] = useState();
   const [contractOdonLiquidityInUsd, setOdonContractLiquidityInUsd] = useState();
   const [contractUsdcLiquidity, setUsdcContractLiquidity] = useState();
   const [contractUsdcLiquidityInUsd, setUsdcContractLiquidityInUsd] = useState();
@@ -204,6 +205,7 @@ export const LendAndLoanProvider = ({ children }) => {
       const loancount = await contract.loanCount();
       const lendcount = await contract.lendCount();
 
+      const totalLiquidatedAmount = await contract.totalLiquidatedAmount();
       const odon = await contract.odonTotalLiquidity();
       const usdc = await contract.usdcTotalLiquidity();
       const usdt = await contract.usdtTotalLiquidity();
@@ -231,6 +233,9 @@ export const LendAndLoanProvider = ({ children }) => {
         lendcount.toString()
       )
 
+      setTotalContractLiquiditedAmount(
+        Number(totalLiquidatedAmount.toString() / 10 ** 18).toFixed(3)
+      );
       setOdonContractLiquidity(
         Number(ethers.utils.formatEther(odon.toString())).toFixed(3)
       );
@@ -248,6 +253,7 @@ export const LendAndLoanProvider = ({ children }) => {
       setOdonContractLiquidityInUsd(
         Number(odonInusd.toString() / 10 ** 18)
       );
+     
       setUsdcContractLiquidityInUsd(
         Number(usdcInusd.toString() / 10 ** 6)
       );
@@ -374,6 +380,7 @@ export const LendAndLoanProvider = ({ children }) => {
         library,
         networkId,
         isSupportMetaMask,
+        contractTotalLiquiditedAmount,
         contractOdonLiquidity,
         contractOdonLiquidityInUsd,
         contractUsdcLiquidity,

@@ -94,7 +94,7 @@ function WithDraw() {
       setValidateLoanAmount(0.00001);
     }
     else if (_type === 5) {
-      setValidateLoanAmount(0.5);
+      setValidateLoanAmount(0.05);
     }
   }
 
